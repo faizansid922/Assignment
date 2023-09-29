@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #timer {
+            font-size: 36px;
+            margin: 20px;
+        }
+        #inputs {
+            margin: 20px;
+        }
+        #controls {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">00:00:00</div>
+    <div id="inputs">
+        <label for="hours">Hours:</label>
+        <input type="number" id="hours" value="0">
+        <label for="minutes">Minutes:</label>
+        <input type="number" id="minutes" value="0">
+        <label for="seconds">Seconds:</label>
+        <input type="number" id="seconds" value="0">
+    </div>
+    <div id="controls">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <script>
+        let timer;
+        let isRunning = false;
+        let hoursInput = document.getElementById('hours');
+        let minutesInput = document.getElementById('minutes');
+        let secondsInput = document.getElementById('seconds');
+        let hours = 0, minutes = 0, seconds = 0;
+
+        const updateTime = () => {
+            if (hours === 0 && minutes === 0 && seconds === 0) {
+                clearInterval(timer);
+                isRunning = false;
+                alert('Timer completed!');
+                return;
+            }
+
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    hours--;
+                    minutes = 59;
+                } else {
+                    minutes--;
+                }
+                seconds = 59;
+            } else {
+                seconds--;
+            }
+
+            const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('timer').textContent = timeString;
+        };
+
+        document.getElementById('start').addEventListener('click', () => {
+            if (!isRunning) {
+                hours = parseInt(hoursInput.value) || 0;
+                minutes = parseInt(minutesInput.value) || 0;
+                seconds = parseInt(secondsInput.value) || 0;
+
+                if (hours === 0 && minutes === 0 && seconds === 0) {
+                    alert('Please enter a valid time.');
+                    return;
+                }
+
+                timer = setInterval(updateTime, 1000);
+                isRunning = true;
+            }
+        });
+
+        document.getElementById('pause').addEventListener('click', () => {
+            if (isRunning) {
+                clearInterval(timer);
+                isRunning = false;
+            }
+        });
+
+        document.getElementById('reset').addEventListener('click', () => {
+            clearInterval(timer);
+            isRunning = false;
+            hoursInput.value = "0";
+            minutesInput.value = "0";
+            secondsInput.value = "0";
+            document.getElementById('timer').textContent = '00:00:00';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        #slideshow {
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        #slideshow img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div id="slideshow">
+            <img src="https://badrinath-kedarnath.gov.in/Assets/image/k3.jpg" alt="">
+            <img src="https://viadvocacy.com/Portals/0/EasyDNNNews/80/10001000p507EDNmainimg-motivation-800x4501.jpg" alt="">
+            <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cmFuZG9tfGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmFuZG9tfGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://images.unsplash.com/photo-1485550409059-9afb054cada4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmFuZG9tfGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://www.successconsciousness.com/blog/wp-content/uploads/motivation-and-willpower.jpg" alt="">
+            <img src="https://happiermindjournal.com/cdn/shop/articles/image_589844834.jpg?v=1518540190" alt="">
+            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cmFuZG9tfGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2022/06/software_engineer.jpeg.jpg" alt="">
+            <img src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://img.freepik.com/free-photo/purple-osteospermum-daisy-flower_1373-16.jpg?w=740&t=st=1695221954~exp=1695222554~hmac=3d5ea7c09c1c29d944c593beb20c3a1a2f41ecc850f149d0df9bf852f8186497" alt="">
+            <img src="https://cdn-assets.theforage.com/icons/hiring-paths/software-engineering-career-ed-refresh.svg" alt="">
+            <img src="https://images.unsplash.com/photo-1550686041-366ad85a1355?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://assets.entrepreneur.com/content/3x2/2000/20200126010631-shutterstock-1029299632.jpeg?format=pjeg&auto=webp&crop=16:9&width=675&height=380" alt="">
+            <img src="https://images.unsplash.com/photo-1473172707857-f9e276582ab6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
+            <img src="https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2023/06/16111548/Kedarnath.jpg" alt="">
+            <img src="https://imageio.forbes.com/specials-images/imageserve/63343f16cafc809b9e377afb/Inspirational-and-Motivational-Quotes---i-can-and-i-will/0x0.jpg?format=jpg&crop=6016,2821,x0,y596,safe&width=1440" alt="">
+        </div>
+        <button onclick="toggleSlideShow()">Start/Stop</button>
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+</body>
+</html>
+<script>
+let slides = document.querySelectorAll('#slideshow img');
+let slideIndex = 0;
+let slideInterval;
+function showSlide(index){
+    slides.forEach((slide,i)=>{
+        if(i === index){
+            slide.style.display = 'block';
+        }
+        else{
+            slide.style.display = 'none';
+        }
+    })
+}
+// Automation Starts
+function startSlideShow(){
+    slideInterval = setInterval(()=>{
+        slideIndex = (slideIndex + 1)% slides.length;
+        showSlide(slideIndex);
+        console.log(slideIndex)
+    }, 1000)
+}
+function stopSlideShow(){
+    clearInterval(slideInterval);
+}
+function toggleSlideShow(){
+    if(slideInterval){
+        stopSlideShow();
+        slideInterval = null;
+    }
+    else{
+        startSlideShow();
+    }
+}
+// Manual Process
+function nextSlide(){
+    stopSlideShow();
+    slideIndex = (slideIndex + 1)% slides.length;
+    showSlide(slideIndex);
+}
+function prevSlide(){
+    stopSlideShow();
+    slideIndex = (slideIndex - 1)% slides.length;
+    if(slideIndex == 0){
+        slideIndex=slides.length-1
+    }
+    console.log(slideIndex)
+    showSlide(slideIndex);
+}
+showSlide(slideIndex);
+</script>
