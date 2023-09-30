@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Accounts</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    color: #007bff;
+}
+
+.account-details {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.total-balance {
+    background-color: #fff;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+    
+    
+</head>
+<body>
+    <h1>Bank Accounts</h1>
+    <div class="account-details" id="accountDetails"></div>
+    <div class="total-balance" id="totalBalance"></div>
+    <script>
+        // Constructor function for BankAccount
+function BankAccount(accountNumber, name, type, balance) {
+    this.accountNumber = accountNumber;
+    this.name = name;
+    this.type = type;
+    this.balance = balance;
+    this.active = true; // All accounts are initially active
+
+    // Deposit method
+    this.deposit = function (amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            console.log(`Deposited $${amount} into account ${this.accountNumber}`);
+        } else {
+            console.log('Invalid deposit amount');
+        }
+    };
+
+    // Withdraw method
+    this.withdraw = function (amount) {
+        if (this.active && amount > 0 && amount <= this.balance) {
+            this.balance -= amount;
+            console.log(`Withdrawn $${amount} from account ${this.accountNumber}`);
+        } else {
+            console.log('Invalid withdrawal or account is inactive');
+        }
+    };
+
+    // Check balance method
+    this.checkBalance = function () {
+        console.log(`Account ${this.accountNumber} balance: $${this.balance}`);
+    };
+
+    // Check if the account is active
+    this.isActive = function () {
+        return this.active;
+    };
+}
+
+// Create multiple BankAccount objects
+const account1 = new BankAccount(1, 'John Doe', 'Savings', 1000);
+const account2 = new BankAccount(2, 'Jane Smith', 'Checking', 1500);
+const account3 = new BankAccount(3, 'Alice Johnson', 'Savings', 2000);
+
+// Perform operations on the accounts
+account1.deposit(500);
+account2.withdraw(200);
+account3.deposit(100);
+account1.checkBalance();
+account2.checkBalance();
+account3.checkBalance();
+
+// Function to calculate the total balance of all active accounts
+function getTotalBalance(accounts) {
+    let total = 0;
+    for (const account of accounts) {
+        if (account.isActive()) {
+            total += account.balance;
+        }
+    }
+    return total;
+}
+
+// Test the getTotalBalance function
+const accounts = [account1, account2, account3];
+const totalActiveBalance = getTotalBalance(accounts);
+console.log(`Total balance of all active accounts: $${totalActiveBalance}`);
+
+// Deactivate account2
+account2.active = false;
+
+// Test isActive method after deactivation
+console.log(`Is account2 active? ${account2.isActive()}`);
+
+    </script>
+</body>
+</html>
