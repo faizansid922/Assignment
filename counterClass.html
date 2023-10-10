@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Counter</title>
+</head>
+<body>
+  <h1>Counter: <span id="counter">0</span></h1>
+  <button id="startStopButton">Start</button>
+  <button id="incrementButton">Increment</button>
+  <button id="decrementButton">Decrement</button>
+
+  <script>
+    let intervalId; // Variable to store the interval ID
+    let isAutoIncrement = false; // Flag to track automatic or manual mode
+    let counterValue = 0;
+
+    const counterElement = document.getElementById('counter');
+    const startStopButton = document.getElementById('startStopButton');
+    const incrementButton = document.getElementById('incrementButton');
+    const decrementButton = document.getElementById('decrementButton');
+
+    // Function to update the counter display
+    function updateCounter() {
+      counterElement.textContent = counterValue;
+    }
+
+    // Function to start or stop the automatic counter
+    function toggleAutomaticCounter() {
+      if (isAutoIncrement) {
+        clearInterval(intervalId);
+        startStopButton.textContent = 'Start';
+      } else {
+        intervalId = setInterval(() => {
+          counterValue++;
+          updateCounter();
+        }, 1000);
+        startStopButton.textContent = 'Stop';
+      }
+      isAutoIncrement = !isAutoIncrement;
+    }
+
+    // Event listener for the start/stop button
+    startStopButton.addEventListener('click', toggleAutomaticCounter);
+
+    // Event listener for the increment button
+    incrementButton.addEventListener('click', () => {
+      if (isAutoIncrement) {
+        clearInterval(intervalId); // Stop automatic counter
+        isAutoIncrement = false;
+        startStopButton.textContent = 'Start';
+      }
+      counterValue++;
+      updateCounter();
+    });
+
+    // Event listener for the decrement button
+    decrementButton.addEventListener('click', () => {
+      if (isAutoIncrement) {
+        clearInterval(intervalId); // Stop automatic counter
+        isAutoIncrement = false;
+        startStopButton.textContent = 'Start';
+      }
+      counterValue--;
+      updateCounter();
+    });
+  </script>
+</body>
+</html>
