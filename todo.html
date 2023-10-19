@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+
+function Todo() {
+  // State variables for text and todos
+  const [text, setText] = useState('');
+  const [todos, setTodos] = useState([]);
+
+  // Function to handle text input change
+  const handleTextChange = (e) => {
+    setText(e.target.value);
+  };
+
+  // Function to handle adding a todo
+  const handleAddTodo = () => {
+    if (text.trim() !== '') {
+      setTodos([...todos, text]);
+      setText(''); // Clear the input field
+    }
+  };
+
+  return (
+    <div>
+      <h1>Todo List App</h1>
+      <input
+        type="text"
+        value={text}
+        onChange={handleTextChange}
+        placeholder="Add a new todo..."
+      />
+      <button onClick={handleAddTodo}>ADD</button>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// Render the Todo component to the root element in the HTML
+ReactDOM.render(<Todo />, document.getElementById('root'));
+
+    </script>
+</body>
+</html>
