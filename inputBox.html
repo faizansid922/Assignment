@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Input Example</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+
+function TextInput() {
+  // State variable for the text
+  const [text, setText] = useState('');
+
+  // Function to handle the text input change
+  const handleTextChange = (e) => {
+    // Update the state with the text from the input field
+    setText(e.target.value);
+  };
+
+  // Function to clear the text
+  const clearText = () => {
+    setText('');
+  };
+
+  return (
+    <div>
+      <h1>Text Input Example</h1>
+      <input
+        type="text"
+        value={text}
+        onChange={handleTextChange}
+        placeholder="Type something..."
+      />
+      <h2>Text: {text}</h2>
+      <button onClick={clearText}>CLEAR</button>
+    </div>
+  );
+}
+
+// Render the TextInput component to the root element in the HTML
+ReactDOM.render(<TextInput />, document.getElementById('root'));
+
+    </script>
+</body>
+</html>
