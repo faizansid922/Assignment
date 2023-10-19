@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+
+// Define the Counter component
+function Counter() {
+  // Use the useState hook with a default value of 0
+  const [count, setCount] = useState(0);
+
+  // Function to handle the button click and update the count
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>Count is {count}</h1>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
+}
+
+// Render the Counter component to the root element in the HTML
+ReactDOM.render(<Counter />, document.getElementById('root'));
+
+    </script>
+</body>
+</html>
